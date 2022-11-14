@@ -1,4 +1,4 @@
 import { server } from './server/Server'
 
-server.listen(3838, () => {console.log('Server running')})
+server.listen(process.env.PORT || 3838, () => { console.log(`Server running on ${process.env.PORT || 3838} PORT`) })
 
