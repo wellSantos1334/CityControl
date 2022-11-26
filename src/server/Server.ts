@@ -1,6 +1,9 @@
 import express from 'express'
-import { router } from './routes/routes'
 import 'dotenv/config'
+
+import './shared/services/TranslationsYup'
+import { router } from './routes/routes'
+
 const server = express()
 
 server.use(express.json())
