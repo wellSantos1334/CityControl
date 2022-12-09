@@ -18,9 +18,9 @@ export const deleteById: RequestHandler = async (req: Request<IParamProps>, res:
 
     if(Number(req.params.id) === 99999) return res.status(StatusCodes.INTERNAL_SERVER_ERROR).json({
         errors: {
-            defalut: 'Registro não encontrado.'
+            default: 'Registro não encontrado.'
         }
     })
 
-    return res.status(StatusCodes.INTERNAL_SERVER_ERROR).send('Não implementado.')
+    return res.status(StatusCodes.NO_CONTENT).send()
 }

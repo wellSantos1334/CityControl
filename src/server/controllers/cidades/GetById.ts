@@ -6,7 +6,7 @@ import { validation } from '../../shared/middlewares'
 
 interface IParamProps {
     id?: number,
-} 
+}
 
 export const getByIdValidation = validation((getSchema) => ({
     params: getSchema<IParamProps>(yup.object().shape({
@@ -15,7 +15,14 @@ export const getByIdValidation = validation((getSchema) => ({
 }))
 
 export const getById: RequestHandler = async (req: Request<IParamProps>, res: Response) => {
-    console.log(req.params)
-    
-    return res.status(StatusCodes.INTERNAL_SERVER_ERROR).send('Não implementado.')
+    if (Number(req.params.id) === 99999) return res.status(StatusCodes.INTERNAL_SERVER_ERROR).json({
+        errors: {
+            default: 'Registro não encontrado'
+        }
+    })
+
+    return res.status(StatusCodes.OK).json({
+        id: req.params.id,
+        name: 'Caxias do Sul',
+    })
 }
