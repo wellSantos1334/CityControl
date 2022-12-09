@@ -1,5 +1,4 @@
 import { Router } from 'express'
-import { StatusCodes } from 'http-status-codes'
 import { getAllValidation } from '../controllers/cidades/GetAll'
 import { CidadesController } from './../controllers'
 
